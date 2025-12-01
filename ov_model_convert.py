@@ -15,25 +15,25 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 model_id = "Qwen/Qwen3-VL-8B-Instruct"
-output_dir = Path(model_id.split("/")[-1])
+model_dir = Path(model_id.split("/")[-1])
 
 to_compress = "FP16"
 
 additional_args = {}
 
 if to_compress == "INT4":
-    output_dir = output_dir / "INT4_asym_g128_r0.8"
+    model_dir = model_dir / "INT4_asym_g128_r0.8"
     additional_args.update({"task": "image-text-to-text", "weight-format": "int4", "group-size": "128", "ratio": "0.8"})
 elif to_compress == "INT8":
-    output_dir = output_dir / "INT8_asym"
+    model_dir = model_dir / "INT8_asym"
     additional_args.update({"task": "image-text-to-text", "weight-format": "int8"})
 else : 
-    output_dir = output_dir / "FP16"
+    model_dir = model_dir / "FP16"
     additional_args.update({"task": "image-text-to-text", "weight-format": "fp16"})
 
-if not output_dir.exists():
+if not model_dir.exists():
     logger.debug(f"[OV] {model_id} model convert start ...")
-    optimum_cli(model_id, output_dir, additional_args=additional_args)
-    logger.info(f"[OV] {model_id} model convert success, saving at {output_dir}")
+    optimum_cli(model_id, model_dir, additional_args=additional_args)
+    logger.info(f"[OV] {model_id} model convert success, saving at {model_dir}")
 
 logger.info(f"[OV] Model convert task done!")

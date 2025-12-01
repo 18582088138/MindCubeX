@@ -1,2 +1,2 @@
 # MindCubeX
-Think inside the cube, A personal LLM Agent.
+Think inside the Cube, A Personal LLM Agent Center.
