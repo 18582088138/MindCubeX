@@ -37,7 +37,7 @@ processor = AutoProcessor.from_pretrained(model_path, trust_remote_code=True)
 processor.tokenizer.padding_side = 'left'
 # [3. 加载数据集]
 print("Loading VQAv2 dataset...")
-dataset = load_from_disk("../datasets/VQAv2_local")
+dataset = load_from_disk("../../datasets/VQAv2_local")
 
 
 # [4. 性能测试循环]

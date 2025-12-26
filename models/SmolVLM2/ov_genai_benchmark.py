@@ -18,7 +18,7 @@ pipe = ov_genai.VLMPipeline(model_path, device)
 
 # [3. 加载数据集]
 print("Loading dataset...")
-dataset = load_from_disk("../datasets/VQAv2_local")
+dataset = load_from_disk("../../datasets/VQAv2_local")
 
 # [4. 准备 Benchmark 数据]
 latencies = []
