@@ -1,13 +1,20 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 
+datasets
+num2words
+
 torch==2.8
 torchvision==0.23.0
 qwen-vl-utils
 Pillow
 gradio>=4.36
 
-git+https://github.com/openvino-dev-samples/optimum.git@qwen3vl
-git+https://github.com/openvino-dev-samples/transformers.git@qwen3vl
-git+https://github.com/openvino-dev-samples/optimum-intel.git@qwen3vl
+transformers
+optimum
+
+# git+https://github.com/openvino-dev-samples/optimum.git@qwen3vl
+# git+https://github.com/openvino-dev-samples/transformers.git@qwen3vl
+# git+https://github.com/openvino-dev-samples/optimum-intel.git@qwen3vl
 nncf
-openvino==2025.3
+openvino==2025.4
+optimum-intel
